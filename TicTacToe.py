@@ -163,3 +163,60 @@ if __name__ == '__main__':
     o_player = AIPlayer('O')
     t = TicTacToe()
     play(t, x_player, o_player, print_game=True)
+
+Output:
+| 0 | 1 | 2 |
+| 3 | 4 | 5 |
+| 6 | 7 | 8 |
+X's turn. Input move (0-8): 0
+X makes a move to square 0
+| X |   |   |
+|   |   |   |
+|   |   |   |
+
+O makes a move to square 4
+| X |   |   |
+|   | O |   |
+|   |   |   |
+
+X's turn. Input move (0-8): 3
+X makes a move to square 3
+| X |   |   |
+| X | O |   |
+|   |   |   |
+
+O makes a move to square 6
+| X |   |   |
+| X | O |   |
+| O |   |   |
+
+X's turn. Input move (0-8): 2
+X makes a move to square 2
+| X |   | X |
+| X | O |   |
+| O |   |   |
+
+O makes a move to square 1
+| X | O | X |
+| X | O |   |
+| O |   |   |
+
+X's turn. Input move (0-8): 7
+X makes a move to square 7
+| X | O | X |
+| X | O |   |
+| O | X |   |
+
+O makes a move to square 5
+| X | O | X |
+| X | O | O |
+| O | X |   |
+
+X's turn. Input move (0-8): 8
+X makes a move to square 8
+| X | O | X |
+| X | O | O |
+| O | X | X |
+
+It's a tie!
+
