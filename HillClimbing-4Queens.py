@@ -72,3 +72,12 @@ solution = hill_climbing(n)
 if solution:
     print("Solution:", solution)
     print_board(solution)
+
+Output:
+
+✅ Solution found after 4 restarts
+Solution: [2, 0, 3, 1]
+ .  Q  .  . 
+ .  .  .  Q 
+ Q  .  .  . 
+ .  .  Q  . 
