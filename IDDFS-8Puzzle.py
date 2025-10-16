@@ -75,3 +75,39 @@ if solution:
             print(f"Move taken: {moves_taken[step-1]}\n")
 else:
     print(f"\n❌ No solution found within depth {max_depth}")
+
+Output:
+
+🔎 Trying with depth limit = 0
+🔎 Trying with depth limit = 1
+🔎 Trying with depth limit = 2
+🔎 Trying with depth limit = 3
+
+✅ Solution found within depth 3 in 3 moves:
+
+Step 0:
+1 2 3
+0 4 6
+7 5 8
+------
+Step 1:
+1 2 3
+4 0 6
+7 5 8
+------
+Move taken: Right
+
+Step 2:
+1 2 3
+4 5 6
+7 0 8
+------
+Move taken: Down
+
+Step 3:
+1 2 3
+4 5 6
+7 8 0
+------
+Move taken: Right
+
