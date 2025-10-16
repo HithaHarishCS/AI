@@ -96,3 +96,38 @@ if solution:
         step_num += 1
 else:
     print("No solution found.")
+
+Output:
+
+Solution found in 7 steps:
+
+Step 1: Suck
+[V][D]
+[D][D]
+------
+Step 2: Move to (1, 0)
+[C][D]
+[V][D]
+------
+Step 3: Suck
+[C][D]
+[V][D]
+------
+Step 4: Move to (1, 1)
+[C][D]
+[C][V]
+------
+Step 5: Suck
+[C][D]
+[C][V]
+------
+Step 6: Move to (0, 1)
+[C][V]
+[C][C]
+------
+Step 7: Suck
+[C][V]
+[C][C]
+------
+
+=== Code Execution Successful ===
