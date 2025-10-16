@@ -58,3 +58,20 @@ if solution:
     print(f" Full visiting order before finding goal: {' '.join(visited_order)}")
 else:
     print(f"\n❌ No path found within depth {max_depth}")
+
+Output:
+
+ Trying with depth limit = 0
+Nodes visited in this depth: A
+
+ Trying with depth limit = 1
+Nodes visited in this depth: A B C
+
+ Trying with depth limit = 2
+Nodes visited in this depth: A B D E C F G
+
+ Trying with depth limit = 3
+Nodes visited in this depth: A B D H E I
+
+Path found within depth 3: A -> B -> E -> I
+ Full visiting order before finding goal: A B D H E I
