@@ -1,0 +1,61 @@
+from copy import deepcopy
+
+goal = [[1,2,3],[4,5,6],[7,8,0]]
+
+def display(state):
+    for row in state:
+        print(row)
+    print()
+
+def find_blank(state):
+    for i in range(3):
+        for j in range(3):
+            if state[i][j] == 0:
+                return i, j
+
+def generate_successors(state):
+    r, c = find_blank(state)
+    moves = []
+    
+    dirs = [(-1,0),(1,0),(0,-1),(0,1)]  # up, down, left, right
+    
+    for dr, dc in dirs:
+        nr, nc = r + dr, c + dc
+        if 0 <= nr < 3 and 0 <= nc < 3:
+            new_state = deepcopy(state)
+            new_state[r][c], new_state[nr][nc] = new_state[nr][nc], new_state[r][c]
+            moves.append(new_state)
+    return moves
+
+def dfs(initial):
+    stack = [initial]
+    visited = []
+
+    while stack:
+        state = stack.pop()
+        
+        if state in visited:
+            continue
+        visited.append(state)
+
+        print("Exploring state:")
+        display(state)
+
+        if state == goal:
+            print("Goal reached!")
+            return
+
+        for nxt in generate_successors(state):
+            if nxt not in visited:
+                stack.append(nxt)
+
+    print("No solution found.")
+
+# Example initial puzzle
+initial_state = [
+    [1, 2, 3],
+    [4, 0, 6],
+    [7, 5, 8]
+]
+
+dfs(initial_state)
