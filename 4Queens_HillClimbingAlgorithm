@@ -1,0 +1,84 @@
+import random
+
+# ----------------------------------------------------
+# Heuristic: count number of attacking queen pairs
+# ----------------------------------------------------
+def heuristic(state):
+    h = 0
+    n = len(state)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if state[i] == state[j]:                 # same row
+                h += 1
+            elif abs(state[i] - state[j]) == abs(i - j):   # diagonal
+                h += 1
+    return h
+
+
+# ----------------------------------------------------
+# Generate neighbors by moving each queen within its column
+# ----------------------------------------------------
+def get_neighbors(state):
+    neighbors = []
+    n = len(state)
+
+    for col in range(n):
+        for row in range(n):
+            if row != state[col]:
+                new_state = state.copy()
+                new_state[col] = row
+                neighbors.append(new_state)
+    return neighbors
+
+
+# ----------------------------------------------------
+# Hill Climbing algorithm for N-Queens
+# ----------------------------------------------------
+def hill_climbing_n_queens(n):
+    current = [random.randint(0, n-1) for _ in range(n)]
+    print("Initial State:", current, " Heuristic =", heuristic(current))
+
+    step = 0
+    while True:
+        step += 1
+        h_current = heuristic(current)
+        if h_current == 0:
+            print("\nGoal reached!")
+            return current
+
+        neighbors = get_neighbors(current)
+        best = min(neighbors, key=lambda s: heuristic(s))
+        h_best = heuristic(best)
+
+        print(f"Step {step} → Best Heuristic: {h_best}")
+
+        if h_best >= h_current:
+            print("\nReached local optimum. No improvement possible.")
+            return current
+
+        current = best
+
+
+# ----------------------------------------------------
+# Pretty print board
+# ----------------------------------------------------
+def print_board(state):
+    n = len(state)
+    print("\nBoard:")
+    for r in range(n):
+        line = ""
+        for c in range(n):
+            if state[c] == r:
+                line += " Q "
+            else:
+                line += " . "
+        print(line)
+    print()
+
+
+# ----------------------------------------------------
+# Run for N = 8 (or any N you choose)
+# ----------------------------------------------------
+solution = hill_climbing_n_queens(8)
+print_board(solution)
+print("Final state:", solution, "Heuristic =", heuristic(solution))
